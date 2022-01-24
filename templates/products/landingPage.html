@@ -1,0 +1,150 @@
+
+{% extends "products/index.html" %}
+{% load static %}
+
+{% block main %}
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <h1>Sync E-Commerce Landing Page</h1>
+                        <p class="p-large p-heading">Start focusing on your goals and get more things done with Sync E-Commerce. </p>
+                    
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row" id="shopList">
+                {%for i in products%}
+                <div class="col-lg-3  d-flex flex-direction-row mb-3">
+                    
+
+                     <div class="card" style="width:400px ">
+                        <img class="card-img-top" src="{{i.image.url}}" alt="Card image">
+                        <div class="card-body">
+                          <h4 class="card-title" >{{i.name}}-{{i.category}}</h4>
+                          <p class="card-text" dir="rtl ">{{i.description}}
+                            <br>
+                             قیمت فقط و فقط {{i.price|floatformat:"0"}} تومن
+
+                            .</p>
+                          <a href="product/{{i.id}}" class="btn btn-primary">See in Detail</a>
+                        </div>
+                      </div>
+
+
+
+                </div> <!-- end of col -->
+                {%endfor%}
+            </div> <!-- end of row -->
+           
+        </div> <!-- end of container -->
+        <div class="deco-white-circle-1">
+            <img src= "{% static "images/decorative-white-circle.svg" %}"  alt="alternative">
+        </div> <!-- end of deco-white-circle-1 -->
+        <div class="deco-white-circle-2">
+            <img src=" {% static "images/decorative-white-circle.svg" %}"  alt="alternative">
+        </div> <!-- end of deco-white-circle-2 -->
+        <div class="deco-blue-circle">
+            <img src=" {% static "images/decorative-blue-circle.svg"  %}" alt="alternative">
+        </div> <!-- end of deco-blue-circle -->
+        <div class="deco-yellow-circle">
+            <img src= "{% static "images/decorative-yellow-circle.svg" %}"  alt="alternative">
+        </div> <!-- end of deco-yellow-circle -->
+        <div class="deco-green-diamond">
+            <img src=" {% static "images/decorative-green-diamond.svg" %}"  alt="alternative">
+        </div> <!-- end of deco-yellow-circle -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+    <!-- Small Features -->
+
+    <!-- Screenshots -->
+    <div id="screens" class="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Image Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container image-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Slide -->
+                            {%for i in products%}
+                                <div class="swiper-slide">
+                                    <a href="product/{{i.id}}"  >
+                                        <img class="img-fluid" src="{{i.image.url}}" alt="alternative">
+                                    </a>
+                                </div>
+                            {%endfor%}
+                                <!-- end of slide -->
+
+                                
+                            </div> <!-- end of swiper-wrapper -->
+
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of image slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider -->
+    <!-- end of screenshots -->
+
+
+    <!-- Statistics -->
+    <div class="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Counter -->
+                    <div id="counter">
+                        <div class="cell">
+                            <i class="fas fa-users"></i>
+                            <div class="counter-value number-count" data-count="231">1</div>
+                            <p class="counter-info">Happy Users</p>
+                        </div>
+                        <div class="cell">
+                            <i class="fas fa-code green"></i>
+                            <div class="counter-value number-count" data-count="385">1</div>
+                            <p class="counter-info">Issues Solved</p>
+                        </div>
+                        <div class="cell">
+                            <i class="fas fa-cog red"></i>
+                            <div class="counter-value number-count" data-count="159">1</div>
+                            <p class="counter-info">Good Reviews</p>
+                        </div>
+                        <div class="cell">
+                            <i class="fas fa-comments yellow"></i>
+                            <div class="counter-value number-count" data-count="127">1</div>
+                            <p class="counter-info">Case Studies</p>
+                        </div>
+                        <div class="cell">
+                            <i class="fas fa-rocket blue"></i>
+                            <div class="counter-value number-count" data-count="211">1</div>
+                            <p class="counter-info">Orders Received</p>
+                        </div>
+                    </div>
+                    <!-- end of counter -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of counter -->
+    <!-- end of statistics -->
+
+    {% endblock main %}
+
+   
